@@ -21,7 +21,7 @@ find_package(Boost REQUIRED)
 
 catkin_package(
   INCLUDE_DIRS include
-#  LIBRARIES lslidar_driver
+  LIBRARIES lslidar_input lslidar_serial lslidar_driver
   CATKIN_DEPENDS
     roscpp diagnostic_updater nodelet
     pcl_ros pcl_conversions
@@ -94,7 +94,7 @@ add_dependencies(lslidar_driver_node
 )
 
 # install options
-install(TARGETS lslidar_input lslidar_driver_node lslidar_serial
+install(TARGETS lslidar_input lslidar_driver_node lslidar_serial lslidar_driver
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
