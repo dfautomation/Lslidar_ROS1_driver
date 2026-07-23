@@ -77,6 +77,7 @@ namespace lslidar_driver
 		memset(&my_addr, 0, sizeof(my_addr));		// initialize to zeros
 		my_addr.sin_family = AF_INET;				// host byte order
 		my_addr.sin_port = htons(port);			  // port in network byte order
+		if (inet_aton(devip_str_difop.c_str(), &my_addr.sin_addr) == 0)
 		my_addr.sin_addr.s_addr = htonl(INADDR_ANY); // automatically fill in my IP
 
 		if (bind(sockfd_, (sockaddr *)&my_addr, sizeof(sockaddr)) == -1)
